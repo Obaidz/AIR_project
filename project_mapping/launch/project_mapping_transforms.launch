@@ -1,0 +1,12 @@
+<launch>
+    
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_node"
+          args="0 0 0.1 0 0.79 0 base_link nerf_cannon 100">
+    </node>
+
+    <!-- 0 0 0.1  = 10 cm 
+        0 0.79 0 = 45 degree horizontal
+        100ms = 10Hz
+    -->
+
+</launch>
