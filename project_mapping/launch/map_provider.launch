@@ -2,10 +2,10 @@
 
 
 <launch>
-
+<!-- Getting our YAML saved map -->
   <arg name="map_file" default="$(find project_mapping)/map/project_mapping_map.yaml"/>
 
-  
+  <!-- Using args in node. THis node will launch map server. -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-    <!-- For Running the map server -->
+   
 </launch>

@@ -1,14 +1,24 @@
 use_map_topic: true
 odom_model_type: diff
 odom_frame_id: odom
+
+#Values for path publishing and visualization
 gui_publish_rate: 10.0
+
+# Max and min number of pcrticles allowed in the cloud
 min_particles: 400
 max_particles: 1900
+
+#Maximum error between the true distribution and the estimated distribution.
 kld_err: 0.05
+
+# movements required for filter update
 update_min_d: 0.25
 update_min_a: 0.3
 resample_interval: 1
 transform_tolerance: 1.0
+
+#Min and Max laser range for scanning
 laser_max_beams: 50
 laser_max_range: 10.0
 laser_z_hit: 0.5

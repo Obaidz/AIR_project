@@ -1,8 +1,11 @@
 <launch>
     <arg name="scan_topic" default="/scan" />
+
+    <!-- The slam_gmapping node takes in sensor_msgs/LaserScan messages and builds a map-->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
         
-        <!-- Loading params file -->
+        <!-- Loading params file from our params folder. 
+        This will have values related to our saved map -->
         <rosparam file="$(find project_mapping)/params/project_mapping_params.yaml" command="load" />
         <remap from="scan" to="$(arg scan_topic)"/>
     </node>

@@ -1,10 +1,14 @@
 <launch>
+<!-- /scan is what we selected in rviz config-->
     <arg name="scan_topic" default="/scan" />
     <arg name="map_file" default="$(find project_mapping)/map/project_mapping_map.yaml"/>
+    <!-- Connecting yaml file-->
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
     <arg name="use_map_topic" default="true"/>
 
-    <node pkg="amcl" type="amcl" name="amcl"> <!-- AMCL is a node-->
+<!-- AMCL is a node
+Betteramcl takes in a laser-based map which will go well with our particlecloud setting.-->
+    <node pkg="amcl" type="amcl" name="amcl"> 
         <rosparam file="$(find project_localization)/params/project_localization_params.yaml" command="load" />
         <remap from="scan" to="$(arg scan_topic)"/>
     </node>
